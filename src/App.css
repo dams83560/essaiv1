@@ -1,0 +1,329 @@
+/* Couleurs de la palette */
+:root {
+  --couleur-primaire: #404E5C;
+  --couleur-secondaire: #99621E;
+  --couleur-accent: #FFC100;
+  --couleur-danger: #9E0031;
+  --couleur-succes: #7DB587;
+  --couleur-fond: #99621E;
+  --couleur-fond-carte: #F8F8F8;
+  --couleur-bordure: #E0E0E0;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--couleur-secondaire);
+  color: var(--couleur-fond);
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  min-width: 450px; /* Largeur minimale (ajustée) */
+  width: 80%; /* Largeur par défaut (tablettes) */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--couleur-fond-carte);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.07);
+  box-sizing: border-box;
+}
+
+h1 {
+  color: var(--couleur-primaire);
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--couleur-fond);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+select,
+textarea {
+  width: calc(100% - 16px);
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1em;
+  background-color: var(--couleur-fond-carte);
+  color: var(--couleur-primaire);
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%2334495e" viewBox="0 0 12 6"><path d="M6 5.99L11.99 0H0L6 5.99z"/></svg>');
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 50%;
+  padding-right: 24px;
+  background-color: var(--couleur-fond-carte);
+}
+
+button {
+  background-color: var(--couleur-accent);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+  margin-top: 16px;
+}
+
+button:hover {
+  background-color: #D49E00;
+}
+
+h2 {
+  color: var(--couleur-fond);
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+nav {
+  background-color: var(--couleur-secondaire);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+nav button {
+  background-color: var(--couleur-accent);
+  color: white;
+  margin: 0 12px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+nav button:hover {
+  background-color: #D49E00;
+}
+
+.commande-card {
+  min-width: 450px; /* Largeur minimale (ajustée) */
+  width: 80%; /* Largeur par défaut (tablettes) */
+  margin-bottom: 20px;
+  padding: 16px;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 12px;
+  background-color: var(--couleur-fond-carte);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+}
+
+.commande-info {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.commande-info h3 {
+  margin: 0 0 8px 0;
+  color: var(--couleur-fond);
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.commande-info p {
+  margin: 0;
+  color: var(--couleur-fond);
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.commande-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+}
+
+.commande-table th,
+.commande-table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--couleur-bordure);
+  text-align: left;
+}
+
+.commande-table th {
+  font-weight: 500;
+  color: var(--couleur-fond);
+}
+
+.commande-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.commande-table select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--couleur-bordure);
+  font-size: 1em;
+  background-color: var(--couleur-fond-carte);
+  color: var(--couleur-primaire);
+}
+
+.commande-statut {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: var(--couleur-fond);
+  padding: 4px 8px;
+  border-top: 1px solid var(--couleur-bordure);
+  display: inline-block;
+  float: right;
+}
+
+.commande-statut select {
+  margin-left: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--couleur-bordure);
+  font-size: 0.9em;
+  color: var(--couleur-primaire);
+}
+
+.article-statut {
+  display: inline-block;
+  text-align: center;
+}
+
+.article-statut select {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--couleur-bordure);
+  font-size: 0.85em;
+  width: auto;
+  max-width: 100px;
+  color: var(--couleur-primaire);
+}
+
+/* Styles de statut */
+.commande-card.commande-en-preparation {
+  background-color: var(--couleur-fond-carte);
+  border-color: var(--couleur-bordure);
+}
+
+.commande-card.commande-emballée {
+  background-color: #FFF9C4;
+  border-color: #FFF176;
+}
+
+.commande-card.commande-recuperee {
+  background-color: #FFEBEE;
+  color: #757575;
+  text-decoration: line-through;
+  border-color: #EF9A9A;
+}
+
+/* Styles pour les sections du formulaire */
+.form-section {
+  margin-bottom: 24px;
+  padding: 16px;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 12px;
+  background-color: var(--couleur-fond-carte);
+  box-sizing: border-box;
+}
+
+.form-section h2 {
+  margin-top: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--couleur-bordure);
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--couleur-fond);
+}
+
+/* Styles pour les messages d'erreur et de succès */
+.error-message {
+  background-color: #F8D7DA;
+  color: var(--couleur-danger);
+  border: 1px solid #F5C6CB;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.success-message {
+  background-color: #D4EDDA;
+  color: var(--couleur-succes);
+  border: 1px solid #C3E6CB;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.article-en-preparation {
+  /* Style pour les articles en préparation (par exemple, rien de spécial) */
+}
+
+.article-emballee {
+  background-color: #FFF9C4;
+}
+
+.article-recuperee {
+  background-color: #FFEBEE;
+  color: #757575;
+  text-decoration: line-through;
+}
+
+/* Media queries pour la responsivité */
+@media (min-width: 769px) { /* PC */
+  .container, .commande-card {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) { /* Tablettes */
+  .container, .commande-card {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) { /* Téléphones */
+  .container, .commande-card {
+    width: 95%;
+  }
+}
