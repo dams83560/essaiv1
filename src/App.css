@@ -1,329 +1,408 @@
-/* Couleurs de la palette */
-:root {
-  --couleur-primaire: #404E5C;
-  --couleur-secondaire: #99621E;
-  --couleur-accent: #FFC100;
-  --couleur-danger: #9E0031;
-  --couleur-succes: #7DB587;
-  --couleur-fond: #99621E;
-  --couleur-fond-carte: #F8F8F8;
-  --couleur-bordure: #E0E0E0;
+/* ... (tous les styles précédents restent inchangés) ... */
+
+/* Styles pour les boutons Modifier, Supprimer et Imprimer */
+.commande-actions {
+  margin-top: 10px;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap; /* Pour la responsivité */
 }
 
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
+.commande-actions .modifier-button, /* Sélecteur plus spécifique */
+.commande-actions .supprimer-button, /* Sélecteur plus spécifique */
+.commande-actions .imprimer-commande-button { /* Sélecteur plus spécifique */
+  padding: 8px 12px; /* Réduire le padding */
+  margin-left: 2px;
+  margin-right: 2px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1em; /* Taille légèrement réduite */
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  display: inline-flex; /* Pour aligner l'icône et le texte */
   align-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: var(--couleur-secondaire);
-  color: var(--couleur-fond);
-  font-family: 'Inter', sans-serif;
+  justify-content: center;
+}
+
+.modifier-button {
+  background-color: var(--couleur-accent);
+  color: var(--couleur-primaire);
+}
+
+.modifier-button:hover {
+  background-color: #6AA892;
+}
+
+.supprimer-button {
+  background-color: var(--couleur-erreur);
+  color: white;
+}
+
+.supprimer-button:hover {
+  background-color: #9E0031;
+}
+
+.imprimer-commande-button {
+  background-color: #FFA500; /* Couleur orange */
+  color: var(--couleur-primaire);
+}
+
+.imprimer-commande-button:hover {
+  background-color: #FF8C00; /* Orange plus foncé au survol */
+}
+
+/* app.css */
+
+/* Couleurs de la palette */
+:root {
+  --couleur-primaire: #080A0C; /* Noir très foncé pour le texte principal */
+  --couleur-secondaire: #333; /* Gris foncé pour le texte secondaire (ajustement pour contraste) */
+  --couleur-accent: #7DB587; /* Vert d'eau pour les boutons et les accents */
+  --couleur-bg: #99621E; /* Brun orangé pour le fond général */
+  --couleur-bordure: #D4A371; /* Version claire du brun pour les bordures */
+  --couleur-succes: #7DB587; /* Vert d'eau pour les messages de succès */
+  --couleur-erreur: #9E0031; /* Rouge bordeaux pour les messages d'erreur */
+  --couleur-bg-sections: #F8F4F0; /* Beige très clair pour le fond des sections */
+}
+
+/* Styles généraux du formulaire */
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  background-color: var(--couleur-bg);
+  color: var(--couleur-primaire);
 }
 
 .container {
-  min-width: 450px; /* Largeur minimale (ajustée) */
-  width: 80%; /* Largeur par défaut (tablettes) */
+  max-width: 960px;
   margin: 20px auto;
   padding: 20px;
-  background-color: var(--couleur-fond-carte);
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.07);
-  box-sizing: border-box;
+  background-color: var(--couleur-bg-sections); /* Fond clair pour le conteneur principal */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  color: var(--couleur-primaire);
+/* Styles pour les sections du formulaire */
+.form-section {
   margin-bottom: 20px;
-  font-size: 2em;
-  font-weight: 600;
+  padding: 15px;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 8px;
+  background-color: white; /* Fond blanc pour les sections pour une meilleure lisibilité du texte noir */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+.form-section h2 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--couleur-accent);
+  font-size: 1.4em;
+  font-weight: bold;
+  color: var(--couleur-primaire);
+}
+
+/* Styles pour les fieldsets et legends */
+fieldset {
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: white;
+}
+
+legend {
+  padding: 8px;
+  background-color: var(--couleur-accent);
+  color: var(--couleur-primaire); /* Texte noir sur fond vert d'eau pour la légende */
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+/* Styles pour les labels */
 label {
   display: block;
-  margin-bottom: 8px;
-  font-weight: 500;
-  color: var(--couleur-fond);
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--couleur-primaire);
 }
 
+/* Styles pour les inputs, selects et textareas */
 input[type="text"],
 input[type="date"],
 input[type="number"],
 input[type="tel"],
 select,
 textarea {
-  width: calc(100% - 16px);
-  padding: 12px;
-  margin-bottom: 16px;
+  width: calc(100% - 12px);
+  padding: 10px;
+  margin-bottom: 12px;
   border: 1px solid var(--couleur-bordure);
-  border-radius: 8px;
+  border-radius: 4px;
   box-sizing: border-box;
   font-size: 1em;
-  background-color: var(--couleur-fond-carte);
+  background-color: white;
   color: var(--couleur-primaire);
 }
 
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%2334495e" viewBox="0 0 12 6"><path d="M6 5.99L11.99 0H0L6 5.99z"/></svg>');
-  background-repeat: no-repeat;
-  background-position-x: 98%;
-  background-position-y: 50%;
-  padding-right: 24px;
-  background-color: var(--couleur-fond-carte);
-}
-
+/* Styles pour les boutons */
 button {
   background-color: var(--couleur-accent);
-  color: white;
+  color: var(--couleur-primaire); /* Texte noir sur fond vert d'eau */
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1.1em;
   transition: background-color 0.3s ease;
-  margin-top: 16px;
+  font-weight: bold;
 }
 
 button:hover {
-  background-color: #D49E00;
+  background-color: #6AA892; /* Version légèrement plus sombre du vert d'eau au survol */
 }
 
-h2 {
-  color: var(--couleur-fond);
-  margin-top: 24px;
-  margin-bottom: 12px;
-  font-size: 1.5em;
-  font-weight: 600;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin-bottom: 16px;
-}
-
-li {
-  padding: 12px 0;
-  border-bottom: 1px solid var(--couleur-bordure);
-}
-
-li:last-child {
-  border-bottom: none;
-}
-
-nav {
-  background-color: var(--couleur-secondaire);
-  padding: 16px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-nav button {
-  background-color: var(--couleur-accent);
-  color: white;
-  margin: 0 12px;
-  padding: 8px 16px;
+/* Styles pour les messages d'erreur et de succès */
+.error-message {
+  background-color: #fdecea;
+  color: var(--couleur-erreur);
+  border: 1px solid var(--couleur-erreur);
   border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  font-size: 1em;
-  text-decoration: none;
-}
-
-nav button:hover {
-  background-color: #D49E00;
-}
-
-.commande-card {
-  min-width: 450px; /* Largeur minimale (ajustée) */
-  width: 80%; /* Largeur par défaut (tablettes) */
-  margin-bottom: 20px;
-  padding: 16px;
-  border: 1px solid var(--couleur-bordure);
-  border-radius: 12px;
-  background-color: var(--couleur-fond-carte);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-  box-sizing: border-box;
-}
-
-.commande-info {
+  padding: 12px;
   margin-bottom: 16px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.success-message {
+  background-color: #e6f9e8;
+  color: var(--couleur-accent); /* Utilisation du vert d'eau pour le texte de succès */
+  border: 1px solid var(--couleur-accent);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+/* Styles pour la carte de chaque commande (VoirCommandes) */
+.commande-card {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, text-decoration 0.3s ease; /* Pour une transition douce */
+}
+
+.commande-card.commande-en-preparation {
+  background-color: #FFFACD; /* Jaune clair pour "En préparation" (style stabilo) */
+  border-left: 5px solid #FFC100;
+}
+
+.commande-card.commande-emballée {
+  background-color: #90EE90; /* Vert clair pour "Emballée" (style stabilo) */
+  border-left: 5px solid #7DB587;
+}
+
+.commande-card.commande-recuperee {
+  background-color: #f44336; /* Fond rouge pour "Récupérée" */
+  border-left: 5px solid #ccc;
+  text-decoration: line-through; /* Barrer le texte */
+  color: white; /* Texte en blanc pour contraster avec le fond rouge */
 }
 
 .commande-info h3 {
-  margin: 0 0 8px 0;
-  color: var(--couleur-fond);
-  font-size: 1.25em;
-  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--couleur-primaire);
 }
 
 .commande-info p {
-  margin: 0;
-  color: var(--couleur-fond);
-  font-size: 1em;
-  line-height: 1.4;
+  margin-bottom: 5px;
+  color: var(--couleur-secondaire);
+  font-size: 0.95em;
 }
 
+.commande-statut {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.commande-statut label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.commande-statut select {
+  padding: 8px;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 4px;
+  font-size: 1em;
+  color: var(--couleur-primaire);
+}
+
+/* Styles pour le tableau des articles (VoirCommandes) */
 .commande-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 16px;
+  margin-top: 10px;
 }
 
 .commande-table th,
 .commande-table td {
-  padding: 12px 8px;
+  padding: 8px;
   border-bottom: 1px solid var(--couleur-bordure);
   text-align: left;
 }
 
 .commande-table th {
-  font-weight: 500;
-  color: var(--couleur-fond);
+  background-color: #f2f2f2;
+  font-weight: bold;
 }
 
-.commande-table tbody tr:last-child td {
-  border-bottom: none;
+.commande-table tbody tr {
+  transition: background-color 0.3s ease, text-decoration 0.3s ease; /* Pour une transition douce */
 }
 
-.commande-table select {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid var(--couleur-bordure);
+.commande-table tbody tr.article-en-preparation {
+  background-color: #FFFACD; /* Jaune clair pour "En préparation" (style stabilo) */
+}
+
+.commande-table tbody tr.article-emballee {
+  background-color: #90EE90; /* Vert clair pour "Emballée" (style stabilo) */
+}
+
+.commande-table tbody tr.article-recuperee {
+  text-decoration: line-through; /* Barrer le texte */
+  color: white; /* Texte en blanc pour contraster avec le fond rouge */
+  background-color: #f44336; /* Fond rouge pour "Récupérée" */
+}
+
+.commande-table tbody tr.article-recuperee td{
+    color: white;
+}
+
+/* Styles pour le conteneur du statut de l'article (VoirCommandes) - Légère adaptation pour le select barré */
+.article-statut select.recuperee {
+  text-decoration: line-through;
+  color: #777;
+  background-color: #f44336; /* Fond rouge pour le select récupéré */
+  color: white;
+}
+
+/* Style pour le bouton d'impression */
+.print-button {
+  background-color: var(--couleur-accent); /* Vert d'eau */
+  color: var(--couleur-primaire); /* Noir très foncé */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   font-size: 1em;
-  background-color: var(--couleur-fond-carte);
-  color: var(--couleur-primaire);
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  margin-bottom: 15px; /* Ajout de marge en bas pour l'espacement */
 }
 
-.commande-statut {
-  margin-top: 8px;
-  font-size: 0.9em;
-  color: var(--couleur-fond);
-  padding: 4px 8px;
-  border-top: 1px solid var(--couleur-bordure);
-  display: inline-block;
-  float: right;
+.print-button:hover {
+  background-color: #6AA892; /* Version légèrement plus sombre du vert d'eau au survol */
 }
 
-.commande-statut select {
-  margin-left: 4px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 1px solid var(--couleur-bordure);
-  font-size: 0.9em;
-  color: var(--couleur-primaire);
-}
+/* Media Queries pour la responsivité */
+@media (max-width: 768px) {
+  body {
+    margin: 10px;
+  }
 
-.article-statut {
-  display: inline-block;
-  text-align: center;
-}
+  .container {
+    margin: 10px auto;
+    padding: 15px;
+  }
 
-.article-statut select {
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 1px solid var(--couleur-bordure);
-  font-size: 0.85em;
-  width: auto;
-  max-width: 100px;
-  color: var(--couleur-primaire);
-}
+  .form-section {
+    margin-bottom: 16px;
+    padding: 12px;
+  }
 
-/* Styles de statut */
-.commande-card.commande-en-preparation {
-  background-color: var(--couleur-fond-carte);
-  border-color: var(--couleur-bordure);
-}
+  .form-section h2 {
+    font-size: 1.3em;
+    padding-bottom: 8px;
+  }
 
-.commande-card.commande-emballée {
-  background-color: #FFF9C4;
-  border-color: #FFF176;
-}
+  fieldset {
+    padding: 14px;
+    margin-bottom: 14px;
+  }
 
-.commande-card.commande-recuperee {
-  background-color: #FFEBEE;
-  color: #757575;
-  text-decoration: line-through;
-  border-color: #EF9A9A;
-}
+  legend {
+    font-size: 1em;
+    padding: 6px 10px;
+  }
 
-/* Styles pour les sections du formulaire */
-.form-section {
-  margin-bottom: 24px;
-  padding: 16px;
-  border: 1px solid var(--couleur-bordure);
-  border-radius: 12px;
-  background-color: var(--couleur-fond-carte);
-  box-sizing: border-box;
-}
+  label {
+    font-size: 0.95em;
+    margin-bottom: 4px;
+  }
 
-.form-section h2 {
-  margin-top: 0;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--couleur-bordure);
-  font-size: 1.5em;
-  font-weight: 600;
-  color: var(--couleur-fond);
-}
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  input[type="tel"],
+  select,
+  textarea {
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+  }
 
-/* Styles pour les messages d'erreur et de succès */
-.error-message {
-  background-color: #F8D7DA;
-  color: var(--couleur-danger);
-  border: 1px solid #F5C6CB;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 16px;
-  box-sizing: border-box;
-}
+  button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
 
-.success-message {
-  background-color: #D4EDDA;
-  color: var(--couleur-succes);
-  border: 1px solid #C3E6CB;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 16px;
-  box-sizing: border-box;
-}
-
-.article-en-preparation {
-  /* Style pour les articles en préparation (par exemple, rien de spécial) */
-}
-
-.article-emballee {
-  background-color: #FFF9C4;
-}
-
-.article-recuperee {
-  background-color: #FFEBEE;
-  color: #757575;
-  text-decoration: line-through;
-}
-
-/* Media queries pour la responsivité */
-@media (min-width: 769px) { /* PC */
-  .container, .commande-card {
-    width: 60%;
+  .error-message,
+  .success-message {
+    padding: 10px;
+    margin-bottom: 12px;
+    font-size: 0.9em;
   }
 }
 
-@media (max-width: 768px) and (min-width: 481px) { /* Tablettes */
-  .container, .commande-card {
-    width: 80%;
+@media (max-width: 480px) {
+  body {
+    margin: 8px;
   }
-}
 
-@media (max-width: 480px) { /* Téléphones */
-  .container, .commande-card {
-    width: 95%;
+  .container {
+    padding: 10px;
   }
-}
+
+  .form-section {
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+
+  .form-section h2 {
+    font-size: 1.2em;
+    padding-bottom: 6px;
+  }
+
+  fieldset {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  legend {
+    font-size: 0.95em;
+    padding: 5px 8px;
+  }
+
+  label {
+    font-size: 0.9em;
+    margin
